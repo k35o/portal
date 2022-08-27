@@ -15,6 +15,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Jest test with coverage
-        uses: ArtiomTr/jest-coverage-report-action@v2.0-rc.6
+        uses: ArtiomTr/jest-coverage-report-action@v2.0.9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
