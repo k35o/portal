@@ -1,13 +1,13 @@
 // テストを何かしら書いたら消す
-import { Button } from '@chakra-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
+import { Sample } from './Sample';
 
 export default {
   title: 'Sample',
-  component: Button,
-} as ComponentMeta<typeof Button>;
+  component: Sample,
+} as ComponentMeta<typeof Sample>;
 
-const Template: ComponentStory<typeof Button> = () => <Button>Smple</Button>;
+const Template: ComponentStory<typeof Sample> = () => <Sample />;
 
 export const Default = Template.bind({});
