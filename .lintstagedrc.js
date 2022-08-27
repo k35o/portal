@@ -5,9 +5,9 @@ const buildCommand = (filenames) => {
     .map((f) => path.relative(process.cwd(), f))
     .join(' ');
 
-  return [`prettier --write ${files}`, `next lint --fix --file ${files}`];
+  return [`prettier --write ${files}`, `eslint --max-warnings=0 --fix ${files}`];
 }
 
 module.exports = {
-  'src/*.{js,jsx,ts,tsx}': [buildCommand],
+  'src/**/*.{js,jsx,ts,tsx}': buildCommand,
 };
