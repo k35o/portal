@@ -1,8 +1,12 @@
+import { Box, Heading } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
   return (
-    <>hello world</>
+    <Box>
+      <Heading>Portal</Heading>
+      hello world
+    </Box>
   )
 }
 
