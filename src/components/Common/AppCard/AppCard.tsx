@@ -1,17 +1,46 @@
-import { Box, Heading, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Grid,
+  GridItem,
+  Heading,
+  Text,
+  useMediaQuery,
+} from '@chakra-ui/react';
+import Image from '../Image/Image';
 
-export const AppCard = (): JSX.Element => {
+type AppCardProps = {
+  src: string;
+  title: string;
+  description: string;
+};
+
+export const AppCard = ({
+  src,
+  title,
+  description,
+}: AppCardProps): JSX.Element => {
+  const [isLargerThan720] = useMediaQuery('(min-width: 720px)');
+
   return (
     <Box
       as="section"
-      w="480px"
-      h="128px"
+      w={isLargerThan720 ? '48%' : '100%'}
+      h="144px"
       border="1px solid"
       borderColor="gray.500"
+      borderRadius="6"
     >
-      <Heading as="h4" size="lg">
-        文字数カウンター
-      </Heading>
+      <Grid templateColumns="128px 1fr" m="2">
+        <GridItem h="128px">
+          <Image src={src} alt="タイトルの画像" width="128px" height="128px" />
+        </GridItem>
+        <GridItem h="128px">
+          <Heading as="h4" size="md">
+            {title}
+          </Heading>
+          <Text mt="4">{description}</Text>
+        </GridItem>
+      </Grid>
     </Box>
   );
 };

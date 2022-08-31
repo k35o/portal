@@ -3,10 +3,17 @@ import React from 'react';
 import { AppCard } from './AppCard';
 
 export default {
-  title: 'AppCard',
+  title: 'Common/AppCard',
   component: AppCard,
 } as ComponentMeta<typeof AppCard>;
 
-const Template: ComponentStory<typeof AppCard> = () => <AppCard />;
+const Template: ComponentStory<typeof AppCard> = (args) => (
+  <AppCard {...args} />
+);
 
 export const Default = Template.bind({});
+Default.args = {
+  src: '',
+  title: 'my blog',
+  description: '開発者が記述しているブログです。',
+};
