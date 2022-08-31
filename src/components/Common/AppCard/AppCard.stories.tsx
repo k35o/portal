@@ -13,7 +13,8 @@ const Template: ComponentStory<typeof AppCard> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  src: '',
+  src: '/',
   title: 'my blog',
   description: '開発者が記述しているブログです。',
+  link: '/blog',
 };
