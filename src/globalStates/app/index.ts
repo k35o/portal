@@ -1,14 +1,14 @@
 import { atom, useRecoilValue } from 'recoil';
 import { RECOIL_KEY } from '../recoilKeys';
 
-type AppList = {
+export type AppInfo = {
   src: string;
   title: string;
   description: string;
   link: string;
 };
 
-const appList = atom<AppList[]>({
+const appList = atom<AppInfo[]>({
   key: RECOIL_KEY.ATOM_APP_LIST,
   default: [
     {

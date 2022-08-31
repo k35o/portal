@@ -1,3 +1,4 @@
+import { AppInfo } from '@/globalStates/app';
 import {
   Box,
   Grid,
@@ -9,12 +10,7 @@ import {
 import Link from 'next/link';
 import Image from '../Image/Image';
 
-type AppCardProps = {
-  src: string;
-  title: string;
-  description: string;
-  link: string;
-};
+type AppCardProps = AppInfo;
 
 export const AppCard = ({
   src,
