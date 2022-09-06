@@ -1,20 +1,13 @@
+import { ChakraProvider } from "@chakra-ui/react"
 import React from "react"
 import { RecoilRoot } from "recoil"
-
-export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
-    },
-  },
-}
 
 export const decorators = [
   (Story) => (
     <RecoilRoot>
-      <Story />
+      <ChakraProvider>
+        <Story />
+      </ChakraProvider>
     </RecoilRoot>
   )
 ]

@@ -5,13 +5,13 @@ import { RecoilRoot } from 'recoil';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
-      <RecoilRoot>
+    <RecoilRoot>
+      <ChakraProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </RecoilRoot>
-    </ChakraProvider>
+      </ChakraProvider>
+    </RecoilRoot>
   );
 }
 
