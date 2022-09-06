@@ -8,12 +8,12 @@ export type AppInfo = {
   link: string;
 };
 
-const appList = atom<AppInfo[]>({
-  key: RECOIL_KEY.ATOM_APP_LIST,
+const appInfoList = atom<AppInfo[]>({
+  key: RECOIL_KEY.ATOM_APP_INFO_LIST,
   default: [
     {
       // TODO:後で画像を設定する
-      src: '',
+      src: '/',
       title: '文字数カウンタ',
       description: '文字列を入力すると文字数を表示してくれるサービスです。',
       link: '/sentence',
@@ -21,4 +21,4 @@ const appList = atom<AppInfo[]>({
   ],
 });
 
-export const useAppList = () => useRecoilValue(appList);
+export const useAppInfoList = () => useRecoilValue(appInfoList);
