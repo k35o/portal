@@ -21,4 +21,17 @@ const appInfoList = atom<AppInfo[]>({
   ],
 });
 
-export const useAppInfoList = () => useRecoilValue(appInfoList);
+export const appInfo = {
+  useWithCommingSoonValue: () => {
+    const baseAppInfoList = useRecoilValue(appInfoList);
+    return [
+      ...baseAppInfoList,
+      {
+        src: '/',
+        title: '準備中',
+        description: '新しいアプリを開発中です。',
+        link: '/',
+      },
+    ];
+  },
+};
