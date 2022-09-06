@@ -17,7 +17,7 @@ export const AppCard = ({
         <GridItem h="128px">
           <Image src={src} alt="アプリの画像" width="128px" height="128px" />
         </GridItem>
-        <GridItem h="128px">
+        <GridItem h="128px" pl="15px">
           <Heading as="h4" size="md">
             {title}
           </Heading>
