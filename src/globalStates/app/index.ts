@@ -2,7 +2,7 @@ import { atom, useRecoilValue } from 'recoil';
 import { RECOIL_KEY } from '../recoilKeys';
 
 export type AppInfo = {
-  src: string;
+  emotion: string;
   title: string;
   description: string;
   link: string;
@@ -12,8 +12,7 @@ const appInfoList = atom<AppInfo[]>({
   key: RECOIL_KEY.ATOM_APP_INFO_LIST,
   default: [
     {
-      // TODO:後で画像を設定する
-      src: '/',
+      emotion: '✏️',
       title: '文字数カウンタ',
       description: '文字列を入力すると文字数を表示してくれるサービスです。',
       link: '/sentence',
@@ -27,7 +26,7 @@ export const appInfo = {
     return [
       ...baseAppInfoList,
       {
-        src: '/',
+        emotion: '🚧',
         title: '準備中',
         description: '新しいアプリを開発中です。',
         link: '/',
