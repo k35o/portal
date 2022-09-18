@@ -1,5 +1,13 @@
 import { AppInfo } from '@/globalStates/app';
-import { Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Center,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Text,
+} from '@chakra-ui/react';
 import Link from 'next/link';
 
 type AppCardProps = AppInfo;
@@ -13,10 +21,10 @@ export const AppCard = ({
   <Box as="section" border="1px solid" borderColor="gray.500" borderRadius="6">
     <Link href={link} passHref>
       <Grid as="a" templateColumns="128px 1fr" m="2">
-        <GridItem h="128px" bgColor="white" borderRadius="6px">
-          <Text align="center" fontSize="6xl">
+        <GridItem bgColor="white" borderRadius="6px">
+          <Center h="100%" fontSize="6xl">
             {emotion}
-          </Text>
+          </Center>
         </GridItem>
         <GridItem h="128px" pl="15px">
           <Heading as="h4" size="md">
