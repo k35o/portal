@@ -1,13 +1,5 @@
 import { AppInfo } from '@/globalStates/app';
-import {
-  Box,
-  Center,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Center, Grid, GridItem, Heading, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
 type AppCardProps = AppInfo;
