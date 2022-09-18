@@ -24,6 +24,7 @@ export const Header = () => {
           <IconButton
             variant="ghost"
             aria-label="toggle color mode"
+            size="lg"
             icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
             onClick={toggleColorMode}
           />
