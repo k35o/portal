@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useState } from 'react';
+import { ChangeEventHandler, useCallback, useState } from 'react';
 
 export const useCounter = () => {
   const [value, setValue] = useState('');
