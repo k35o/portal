@@ -9,7 +9,7 @@ import {
 import { useCounter } from './useCounter';
 
 export const Counter = (): JSX.Element => {
-  const { value, handleChange } = useCounter();
+  const { value, count, handleChange } = useCounter();
   return (
     <Box>
       <Textarea
@@ -20,7 +20,7 @@ export const Counter = (): JSX.Element => {
       />
       <Stat>
         <StatLabel fontSize="2xl">文字数</StatLabel>
-        <StatNumber fontSize="2xl">{value.length}</StatNumber>
+        <StatNumber fontSize="2xl">{count}</StatNumber>
         <StatHelpText fontSize="xl">
           🇯🇵や👨🏻‍💻、𩸽などの文字数も1文字としてカウントされます。
         </StatHelpText>
