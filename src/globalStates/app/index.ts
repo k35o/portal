@@ -15,7 +15,7 @@ const appInfoList = atom<AppInfo[]>({
       emotion: '✏️',
       title: '文字数カウンタ',
       description: '文字列を入力すると文字数を表示してくれるサービスです。',
-      link: '/sentence',
+      link: '/characters',
     },
   ],
 });
