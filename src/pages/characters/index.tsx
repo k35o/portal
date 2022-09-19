@@ -1,3 +1,4 @@
+import { Counter } from '@/components/Features/characters/Counter';
 import {
   Box,
   Heading,
@@ -6,7 +7,6 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
-  Textarea,
 } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { useId } from 'react';
@@ -23,7 +23,7 @@ const Index: NextPage = () => {
           </TabList>
           <TabPanels>
             <TabPanel>
-              <Textarea placeholder="ここに文字を入力してください" />
+              <Counter />
             </TabPanel>
           </TabPanels>
         </Tabs>
