@@ -3,7 +3,7 @@ import React from 'react';
 import { Header } from './Header';
 
 export default {
-  title: 'Header',
+  title: 'Common/Header',
   component: Header,
 } as ComponentMeta<typeof Header>;
 
