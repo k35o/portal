@@ -13,7 +13,7 @@ export const AppCard = ({
   <Box as="section" border="1px solid" borderColor="gray.500" borderRadius="6">
     <Link href={link} passHref>
       <Grid as="a" templateColumns="128px 1fr" m="2">
-        <GridItem bgColor="white" borderRadius="6px">
+        <GridItem bgColor="InfoText" borderRadius="6px">
           <Center h="100%" fontSize="6xl">
             {emotion}
           </Center>
