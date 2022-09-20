@@ -1,19 +1,26 @@
-import { ChangeEventHandler, useState } from 'react';
+import { charactersText } from '@/globalStates/characters';
+import { ChangeEventHandler, useState, useTransition } from 'react';
 
 export const useCounter = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = charactersText.useTextState();
   const [count, setCount] = useState(0);
+  const [isPending, startTransition] = useTransition();
 
   const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     const newValue = e.target.value;
     setValue(newValue);
-    const segmenter = new Intl.Segmenter('ja', { granularity: 'grapheme' });
-    setCount([...segmenter.segment(newValue)].length);
+    startTransition(() => {
+      setCount(() => {
+        const segmenter = new Intl.Segmenter('ja', { granularity: 'grapheme' });
+        return [...segmenter.segment(newValue)].length;
+      });
+    });
   };
 
   return {
     value,
     count,
+    isPending,
     handleChange,
   };
 };
