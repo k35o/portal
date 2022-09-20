@@ -1,7 +1,8 @@
+import { charactersText } from '@/globalStates/characters';
 import { ChangeEventHandler, useState, useTransition } from 'react';
 
 export const useCounter = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = charactersText.useTextState();
   const [count, setCount] = useState(0);
   const [isPending, startTransition] = useTransition();
 

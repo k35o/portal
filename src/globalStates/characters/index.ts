@@ -7,6 +7,5 @@ const text = atom<string>({
 });
 
 export const charactersText = {
-  useTextValue: () => useRecoilValue(text),
   useTextState: () => useRecoilState(text),
 };
