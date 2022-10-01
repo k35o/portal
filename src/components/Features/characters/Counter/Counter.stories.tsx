@@ -3,7 +3,7 @@ import React from 'react';
 import { Counter } from './Counter';
 
 export default {
-  title: 'Features/Counter',
+  title: 'Features/Characters/Counter',
   component: Counter,
 } as ComponentMeta<typeof Counter>;
 
