@@ -2,11 +2,13 @@ import {
   Box,
   FormControl,
   FormLabel,
+  Highlight,
   Input,
   SimpleGrid,
   Text,
   Textarea,
 } from '@chakra-ui/react';
+import { Fragment } from 'react';
 import { useFindReplace } from './useFindReplace';
 
 export const FindReplace = (): JSX.Element => {
@@ -14,8 +16,7 @@ export const FindReplace = (): JSX.Element => {
     value,
     searchText,
     replaceText,
-    searchedText,
-    replacedText,
+    searchedSplitText,
     handleChange,
     handleChangeSearchText,
     handleChangeReplaceText,
@@ -53,7 +54,16 @@ export const FindReplace = (): JSX.Element => {
             borderRadius="md"
             height="256px"
           >
-            {searchedText}
+            {searchedSplitText.map((searchedText, idx) => (
+              <Fragment key={`${searchedText}_${idx}`}>
+                {searchedText}
+                {idx !== searchedSplitText.length - 1 && (
+                  <Highlight query={searchText} styles={{ bg: 'orange.100' }}>
+                    {searchText}
+                  </Highlight>
+                )}
+              </Fragment>
+            ))}
           </Text>
         </Box>
         <Box>
@@ -64,7 +74,16 @@ export const FindReplace = (): JSX.Element => {
             borderRadius="md"
             height="256px"
           >
-            {replacedText}
+            {searchedSplitText.map((searchedText, idx) => (
+              <Fragment key={`${searchedText}_${idx}`}>
+                {searchedText}
+                {idx !== searchedSplitText.length - 1 && (
+                  <Highlight query={replaceText} styles={{ bg: 'orange.100' }}>
+                    {replaceText}
+                  </Highlight>
+                )}
+              </Fragment>
+            ))}
           </Text>
         </Box>
       </SimpleGrid>

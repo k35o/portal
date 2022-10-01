@@ -18,16 +18,18 @@ export const useFindReplace = () => {
     setReplaceText(e.target.value);
   };
 
-  const searchedText = useMemo(() => value, [value]);
-
-  const replacedText = useMemo(() => value, [value]);
+  const searchedSplitText = useMemo(() => {
+    if (!value.length || !searchText.length) {
+      return [value];
+    }
+    return value.split(RegExp(searchText));
+  }, [value, searchText]);
 
   return {
     value,
     searchText,
     replaceText,
-    searchedText,
-    replacedText,
+    searchedSplitText,
     handleChange,
     handleChangeSearchText,
     handleChangeReplaceText,
