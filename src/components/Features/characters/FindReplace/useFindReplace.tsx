@@ -1,5 +1,5 @@
 import { charactersText } from '@/globalStates/characters';
-import { ChangeEventHandler, useState } from 'react';
+import { ChangeEventHandler, useMemo, useState } from 'react';
 
 export const useFindReplace = () => {
   const [value, setValue] = charactersText.useTextState();
@@ -18,22 +18,18 @@ export const useFindReplace = () => {
     setReplaceText(e.target.value);
   };
 
-  const search = () => {
-    console.log(searchText);
-  };
+  const searchedText = useMemo(() => value, [value]);
 
-  const replace = () => {
-    console.log(replaceText);
-  };
+  const replacedText = useMemo(() => value, [value]);
 
   return {
     value,
     searchText,
     replaceText,
+    searchedText,
+    replacedText,
     handleChange,
     handleChangeSearchText,
     handleChangeReplaceText,
-    search,
-    replace,
   };
 };
