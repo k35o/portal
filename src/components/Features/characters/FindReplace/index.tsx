@@ -12,7 +12,16 @@ import {
 import { useFindReplace } from './useFindReplace';
 
 export const FindReplace = (): JSX.Element => {
-  const { value, handleChange } = useFindReplace();
+  const {
+    value,
+    searchText,
+    replaceText,
+    handleChange,
+    handleChangeSearchText,
+    handleChangeReplaceText,
+    search,
+    replace,
+  } = useFindReplace();
   return (
     <Box>
       <Textarea
@@ -23,15 +32,27 @@ export const FindReplace = (): JSX.Element => {
       />
       <FormControl>
         <FormLabel>検索する文字</FormLabel>
-        <Input type="text" />
+        <Input
+          type="text"
+          value={searchText}
+          onChange={handleChangeSearchText}
+        />
       </FormControl>
       <FormControl>
         <FormLabel>置換する文字</FormLabel>
-        <Input type="text" />
+        <Input
+          type="text"
+          value={replaceText}
+          onChange={handleChangeReplaceText}
+        />
       </FormControl>
       <SimpleGrid columns={2} spacing={5} pt={5}>
-        <Button>検索する</Button>
-        <Button>置換する</Button>
+        <Button type="button" onClick={search}>
+          検索する
+        </Button>
+        <Button type="button" onClick={replace}>
+          置換する
+        </Button>
       </SimpleGrid>
     </Box>
   );
