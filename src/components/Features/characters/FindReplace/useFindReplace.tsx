@@ -22,7 +22,7 @@ export const useFindReplace = () => {
     if (!value.length || !searchText.length) {
       return [value];
     }
-    return value.split(RegExp(searchText));
+    return value.split(searchText);
   }, [value, searchText]);
 
   return {
