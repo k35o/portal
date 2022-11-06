@@ -1,4 +1,5 @@
 import { Counter } from '@/components/Features/characters/Counter';
+import { FindReplace } from '@/components/Features/characters/FindReplace';
 import {
   Box,
   Heading,
@@ -20,10 +21,14 @@ const Index: NextPage = () => {
         <Tabs>
           <TabList>
             <Tab>文字数カウント</Tab>
+            <Tab>検索&置き換え</Tab>
           </TabList>
           <TabPanels>
             <TabPanel>
               <Counter />
+            </TabPanel>
+            <TabPanel>
+              <FindReplace />
             </TabPanel>
           </TabPanels>
         </Tabs>
