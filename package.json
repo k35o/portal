@@ -24,7 +24,6 @@
     "recoil": "^0.7.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.13",
     "@chakra-ui/storybook-addon": "^4.0.12",
     "@storybook/addon-a11y": "^6.5.13",
     "@storybook/addon-actions": "^6.5.13",
@@ -40,7 +39,6 @@
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
-    "babel-loader": "^8.2.5",
     "chromatic": "^6.11.4",
     "eslint": "^8.27.0",
     "eslint-config-next": "^13.0.2",
