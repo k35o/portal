@@ -1,7 +1,7 @@
 import { AppInfo } from '@/globalStates/app';
 import { Box, Center, Grid, GridItem, Heading, Text } from '@chakra-ui/react';
-import Link from 'next/link';
 import { useId } from 'react';
+import { Link } from '@/components/Common/Link';
 
 type AppCardProps = AppInfo;
 
@@ -20,8 +20,8 @@ export const AppCard = ({
       borderColor="gray.500"
       borderRadius="6"
     >
-      <Link href={link} passHref>
-        <Grid as="a" templateColumns="128px 1fr" m="2">
+      <Link href={link}>
+        <Grid templateColumns="128px 1fr" m="2">
           <GridItem bgColor="InfoText" borderRadius="6px">
             <Center h="100%" fontSize="6xl">
               {emotion}
