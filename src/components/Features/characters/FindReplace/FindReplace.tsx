@@ -17,9 +17,11 @@ import { useFindReplace } from './useFindReplace';
 export const FindReplace = (): JSX.Element => {
   const {
     value,
+    isRegExp,
     searchText,
     replaceText,
     searchedSplitText,
+    handleChangeRegExp,
     handleChange,
     handleChangeSearchText,
     handleChangeReplaceText,
@@ -36,7 +38,9 @@ export const FindReplace = (): JSX.Element => {
         <Flex>
           <FormLabel>検索する文字</FormLabel>
           <Spacer />
-          <Checkbox>正規表現で検索する</Checkbox>
+          <Checkbox isChecked={isRegExp} onChange={handleChangeRegExp}>
+            正規表現を使用する
+          </Checkbox>
         </Flex>
         <Input
           type="text"

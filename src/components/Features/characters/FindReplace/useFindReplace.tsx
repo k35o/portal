@@ -3,8 +3,13 @@ import { ChangeEventHandler, useMemo, useState } from 'react';
 
 export const useFindReplace = () => {
   const [value, setValue] = charactersText.useTextState();
+  const [isRegExp, setIsRegExp] = useState(false);
   const [searchText, setSearchText] = useState('');
   const [replaceText, setReplaceText] = useState('');
+
+  const handleChangeRegExp: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setIsRegExp(e.target.checked);
+  };
 
   const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setValue(e.target.value);
@@ -27,9 +32,11 @@ export const useFindReplace = () => {
 
   return {
     value,
+    isRegExp,
     searchText,
     replaceText,
     searchedSplitText,
+    handleChangeRegExp,
     handleChange,
     handleChangeSearchText,
     handleChangeReplaceText,
