@@ -1,10 +1,12 @@
 import {
   Box,
+  Flex,
   FormControl,
   FormLabel,
   Highlight,
   Input,
   SimpleGrid,
+  Spacer,
   Text,
   Textarea,
 } from '@chakra-ui/react';
@@ -47,12 +49,16 @@ export const FindReplace = (): JSX.Element => {
       </FormControl>
       <SimpleGrid columns={2} spacing={5} pt={5}>
         <Box>
-          <Text>検索結果</Text>
+          <Flex>
+            <Text>検索結果</Text>
+            <Spacer />
+            <Text>{searchedSplitText.length - 1}件</Text>
+          </Flex>
           <Text
             border="1px solid"
             borderColor="inherit"
             borderRadius="md"
-            height="256px"
+            minH="256px"
           >
             {searchedSplitText.map((searchedText, idx) => (
               <Fragment key={`${searchedText}_${idx}`}>
@@ -72,7 +78,7 @@ export const FindReplace = (): JSX.Element => {
             border="1px solid"
             borderColor="inherit"
             borderRadius="md"
-            height="256px"
+            minH="256px"
           >
             {searchedSplitText.map((searchedText, idx) => (
               <Fragment key={`${searchedText}_${idx}`}>
