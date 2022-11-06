@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { FindReplace } from '.';
+import { FindReplace } from './FindReplace';
 
 export default {
   title: 'Features/Characters/FindReplace',
