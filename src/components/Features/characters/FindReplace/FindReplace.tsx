@@ -3,6 +3,7 @@ import {
   Checkbox,
   Flex,
   FormControl,
+  FormErrorMessage,
   FormLabel,
   Highlight,
   Input,
@@ -21,9 +22,10 @@ export const FindReplace = (): JSX.Element => {
   const {
     value,
     isRegExp,
+    isInvalidRegExp,
     searchText,
     replaceText,
-    searchedSplitText,
+    searchedResultAndSplitText,
     handleChangeRegExp,
     handleChange,
     handleChangeSearchText,
@@ -37,24 +39,31 @@ export const FindReplace = (): JSX.Element => {
         placeholder="ここに文字列を入力してください"
         height="256px"
       />
-      <FormControl pt={5}>
+      <FormControl pt={5} isInvalid={isRegExp && isInvalidRegExp}>
         <Flex>
           <FormLabel>検索する文字</FormLabel>
           <Spacer />
-          <Checkbox isChecked={isRegExp} onChange={handleChangeRegExp}>
-            正規表現を使用する
-          </Checkbox>
+          <FormControl w="auto">
+            <Checkbox isChecked={isRegExp} onChange={handleChangeRegExp}>
+              正規表現を使用する
+            </Checkbox>
+          </FormControl>
         </Flex>
         {isRegExp ? (
-          <InputGroup>
-            <InputLeftAddon>/</InputLeftAddon>
-            <Input
-              type="text"
-              value={searchText}
-              onChange={handleChangeSearchText}
-            />
-            <InputRightAddon>/</InputRightAddon>
-          </InputGroup>
+          <>
+            <InputGroup>
+              <InputLeftAddon>/</InputLeftAddon>
+              <Input
+                type="text"
+                value={searchText}
+                onChange={handleChangeSearchText}
+              />
+              <InputRightAddon>/</InputRightAddon>
+            </InputGroup>
+            {isInvalidRegExp && (
+              <FormErrorMessage>不正な正規表現です</FormErrorMessage>
+            )}
+          </>
         ) : (
           <Input
             type="text"
@@ -76,7 +85,7 @@ export const FindReplace = (): JSX.Element => {
           <Flex>
             <Text>検索結果</Text>
             <Spacer />
-            <Text>{searchedSplitText.length - 1}件</Text>
+            <Text>{searchedResultAndSplitText.splitText.length - 1}件</Text>
           </Flex>
           <Text
             border="1px solid"
@@ -84,12 +93,15 @@ export const FindReplace = (): JSX.Element => {
             borderRadius="md"
             minH="256px"
           >
-            {searchedSplitText.map((searchedText, idx) => (
+            {searchedResultAndSplitText.splitText.map((searchedText, idx) => (
               <Fragment key={`${searchedText}_${idx}`}>
                 {searchedText}
-                {idx !== searchedSplitText.length - 1 && (
-                  <Highlight query={searchText} styles={{ bg: 'orange.100' }}>
-                    {searchText}
+                {idx !== searchedResultAndSplitText.splitText.length - 1 && (
+                  <Highlight
+                    query={searchedResultAndSplitText.replacedText[idx]}
+                    styles={{ bg: 'orange.100' }}
+                  >
+                    {searchedResultAndSplitText.replacedText[idx]}
                   </Highlight>
                 )}
               </Fragment>
@@ -104,10 +116,10 @@ export const FindReplace = (): JSX.Element => {
             borderRadius="md"
             minH="256px"
           >
-            {searchedSplitText.map((searchedText, idx) => (
+            {searchedResultAndSplitText.splitText.map((searchedText, idx) => (
               <Fragment key={`${searchedText}_${idx}`}>
                 {searchedText}
-                {idx !== searchedSplitText.length - 1 && (
+                {idx !== searchedResultAndSplitText.splitText.length - 1 && (
                   <Highlight query={replaceText} styles={{ bg: 'orange.100' }}>
                     {replaceText}
                   </Highlight>
