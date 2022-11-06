@@ -6,6 +6,9 @@ import {
   FormLabel,
   Highlight,
   Input,
+  InputGroup,
+  InputLeftAddon,
+  InputRightAddon,
   SimpleGrid,
   Spacer,
   Text,
@@ -42,11 +45,23 @@ export const FindReplace = (): JSX.Element => {
             正規表現を使用する
           </Checkbox>
         </Flex>
-        <Input
-          type="text"
-          value={searchText}
-          onChange={handleChangeSearchText}
-        />
+        {isRegExp ? (
+          <InputGroup>
+            <InputLeftAddon>/</InputLeftAddon>
+            <Input
+              type="text"
+              value={searchText}
+              onChange={handleChangeSearchText}
+            />
+            <InputRightAddon>/</InputRightAddon>
+          </InputGroup>
+        ) : (
+          <Input
+            type="text"
+            value={searchText}
+            onChange={handleChangeSearchText}
+          />
+        )}
       </FormControl>
       <FormControl pt={3}>
         <FormLabel>置換する文字</FormLabel>
