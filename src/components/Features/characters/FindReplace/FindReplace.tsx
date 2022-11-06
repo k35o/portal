@@ -1,5 +1,6 @@
 import {
   Box,
+  Checkbox,
   Flex,
   FormControl,
   FormLabel,
@@ -32,7 +33,11 @@ export const FindReplace = (): JSX.Element => {
         height="256px"
       />
       <FormControl pt={5}>
-        <FormLabel>検索する文字</FormLabel>
+        <Flex>
+          <FormLabel>検索する文字</FormLabel>
+          <Spacer />
+          <Checkbox>正規表現で検索する</Checkbox>
+        </Flex>
         <Input
           type="text"
           value={searchText}
