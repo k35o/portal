@@ -1,5 +1,6 @@
 import {
   DependencyList,
+  MouseEvent,
   MutableRefObject,
   useCallback,
   useLayoutEffect,
@@ -12,12 +13,12 @@ type ScrollHooks = (
   deps?: DependencyList,
   scrollOptions?: ScrollIntoViewOptions,
 ) => readonly [
-  ref: MutableRefObject<HTMLElement | null>,
+  ref: MutableRefObject<HTMLDivElement | null>,
   scrollToRef: ScrollToRef,
 ];
 
 export const useScroll: ScrollHooks = (deps = [], scrollOptions) => {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   const scrollToRef: ScrollToRef = useCallback(
     (e) => {
