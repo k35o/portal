@@ -1,10 +1,15 @@
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
+  Avatar,
   Box,
   Button,
   Flex,
   Heading,
   IconButton,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
   Spacer,
   useColorMode,
 } from '@chakra-ui/react';
@@ -13,7 +18,7 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 
 export const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const { status } = useSession();
+  const { data: session, status } = useSession();
 
   return (
     <Box as="header" borderBottom="1px solid" borderBottomColor="gray.500">
@@ -37,8 +42,18 @@ export const Header = () => {
           {status === 'unauthenticated' && (
             <Button onClick={() => signIn('google')}>Sign in</Button>
           )}
-          {status === 'authenticated' && (
-            <Button onClick={() => signOut()}>Log out</Button>
+          {session?.user && (
+            <Menu>
+              <MenuButton>
+                <Avatar
+                  name={session.user.name ?? undefined}
+                  src={session.user.image ?? undefined}
+                />
+              </MenuButton>
+              <MenuList>
+                <MenuItem onClick={() => signOut()}>ログアウト</MenuItem>
+              </MenuList>
+            </Menu>
           )}
         </Box>
       </Flex>
