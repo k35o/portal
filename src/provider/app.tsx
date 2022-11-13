@@ -12,7 +12,6 @@ export const AppProvider = ({
   session,
   children,
 }: AppProviderProps): JSX.Element => {
-  console.log(session);
   return (
     <RecoilRoot>
       <SessionProvider session={session}>
