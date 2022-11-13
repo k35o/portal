@@ -1,13 +1,13 @@
-import { ChakraProvider } from "@chakra-ui/react"
 import React from "react"
-import { RecoilRoot } from "recoil"
+import { AppProvider } from "./../src/provider/app";
+import { worker } from './../src/mocks/worker'
+
+worker.start({ onUnhandledRequest: "bypass" });
 
 export const decorators = [
   (Story) => (
-    <RecoilRoot>
-      <ChakraProvider>
-        <Story />
-      </ChakraProvider>
-    </RecoilRoot>
+    <AppProvider session={undefined}>
+      <Story />
+    </AppProvider>
   )
 ]
