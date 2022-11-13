@@ -18,7 +18,7 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 
 export const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   return (
     <Box as="header" borderBottom="1px solid" borderBottomColor="gray.500">
@@ -39,16 +39,13 @@ export const Header = () => {
           />
         </Box>
         <Box>
-          {status === 'unauthenticated' && (
+          {!session && (
             <Button onClick={() => signIn('google')}>Sign in</Button>
           )}
           {session?.user && (
             <Menu>
               <MenuButton>
-                <Avatar
-                  name={session.user.name ?? undefined}
-                  src={session.user.image ?? undefined}
-                />
+                <Avatar name={session.user.name} src={session.user.image} />
               </MenuButton>
               <MenuList>
                 <MenuItem onClick={() => signOut()}>ログアウト</MenuItem>
