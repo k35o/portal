@@ -1,13 +1,15 @@
-import { ChakraProvider } from "@chakra-ui/react"
 import React from "react"
-import { RecoilRoot } from "recoil"
+import { AppProvider } from "./../src/provider/app";
+import { Session } from 'next-auth';
+
+const defaultSession: Session = {
+  expires: '',
+}
 
 export const decorators = [
   (Story) => (
-    <RecoilRoot>
-      <ChakraProvider>
-        <Story />
-      </ChakraProvider>
-    </RecoilRoot>
+    <AppProvider session={defaultSession}>
+      <Story />
+    </AppProvider>
   )
 ]
