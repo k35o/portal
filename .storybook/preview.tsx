@@ -1,14 +1,12 @@
 import React from "react"
 import { AppProvider } from "./../src/provider/app";
-import { Session } from 'next-auth';
+import { worker } from './../src/mocks/worker'
 
-const defaultSession: Session = {
-  expires: '',
-}
+worker.start();
 
 export const decorators = [
   (Story) => (
-    <AppProvider session={defaultSession}>
+    <AppProvider session={undefined}>
       <Story />
     </AppProvider>
   )
