@@ -19,7 +19,7 @@
     "@emotion/styled": "^11.10.5",
     "@next-auth/prisma-adapter": "^1.0.5",
     "@prisma/client": "^4.6.1",
-    "@vercel/analytics": "^0.1.5",
+    "@vercel/analytics": "^0.1.6",
     "framer-motion": "^7.6.19",
     "next": "^13.0.6",
     "next-auth": "^4.17.0",
